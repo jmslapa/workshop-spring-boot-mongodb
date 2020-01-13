@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.coursejava.workshopmongo.dto.AuthorDTO;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Document
 public class Post implements Serializable {
@@ -15,6 +16,7 @@ public class Post implements Serializable {
 	
 	@Id
 	private String id;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Date date;
 	private String title;
 	private String body;
